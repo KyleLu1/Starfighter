@@ -21,7 +21,9 @@ public class StarFighter extends JFrame
 		((Component)theGame).setFocusable(true);
 
 		getContentPane().add(theGame);
-
+                
+                
+                                     setDefaultCloseOperation(EXIT_ON_CLOSE);   
 		setVisible(true);
 	}
 
