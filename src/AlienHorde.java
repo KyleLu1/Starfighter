@@ -1,4 +1,4 @@
-package Starfighter;
+
 
 //(c) A+ Computer Science
 //www.apluscompsci.com
@@ -12,19 +12,18 @@ import javax.imageio.ImageIO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bullets
+public class AlienHorde
 {
-	private List<Ammo> ammo;
+	private List<Alien> aliens;
 
-	public Bullets()
+	public AlienHorde(int size)
 	{
 	}
 
-	public void add(Ammo al)
+	public void add(Alien al)
 	{
 	}
 
-	//post - draw each Ammo
 	public void drawEmAll( Graphics window )
 	{
 	}
@@ -33,13 +32,8 @@ public class Bullets
 	{
 	}
 
-	public void cleanEmUp()
+	public void removeDeadOnes(List<Ammo> shots)
 	{
-	}
-
-	public List<Ammo> getList()
-	{
-		return null;
 	}
 
 	public String toString()

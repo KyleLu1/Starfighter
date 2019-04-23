@@ -1,4 +1,4 @@
-package Starfighter;
+
 
 //(c) A+ Computer Science
 //www.apluscompsci.com
@@ -38,7 +38,7 @@ public class Ship extends MovingThing {
         super(x, y, w, h);
         speed = s;
         try {
-            URL url = getClass().getResource("/Resources/ship.jpg");
+            URL url = getClass().getResource("Resources/ship.jpg");
             image = ImageIO.read(url);
         } catch (Exception e) {
             //feel free to do something here
