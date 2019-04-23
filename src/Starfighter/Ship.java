@@ -21,12 +21,16 @@ public class Ship extends MovingThing {
     }
 
     public Ship(int x, int y) {
-        this(x,y,50,50,5);
+        //super(x,y,10,10);
+        this(x,y,10,10,5);
         
     }
 
     public Ship(int x, int y, int s) {
-        this(x,y,50,50,s);
+        //super(x,y,10,10);
+        //speed =s;
+        this(x,y,10,10,s);
+        
         
     }
 
