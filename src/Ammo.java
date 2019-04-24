@@ -21,7 +21,7 @@ public class Ammo extends MovingThing
 
 	public Ammo(int x, int y)
 	{
-		//add code
+		this(x,y,)
 	}
 
 	public Ammo(int x, int y, int s)
