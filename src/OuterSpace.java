@@ -1,5 +1,4 @@
 
-
 //(c) A+ Computer Science
 //www.apluscompsci.com
 //Name -
@@ -21,11 +20,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
     private Alien alienOne;
     private Alien alienTwo;
 
-    /* uncomment once you are ready for this part
-     *
-     private AlienHorde horde;
-     private Bullets shots;
-     */
+    private AlienHorde horde;
+    private Bullets shots;
+
     private boolean[] keys;
     private BufferedImage back;
 
@@ -34,19 +31,26 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
 
         keys = new boolean[5];
 
-		
         //instantiate Ship
-        ship = new Ship(50,50,50,50,5);
-        
+        ship = new Ship(50, 50, 50, 50, 5);
+
         //alienone and two
-        alienOne = new Alien(150,150,50,50,5);
-        alienTwo = new Alien(250,250,50,50,5);
-        
-        
+        alienOne = new Alien(150, 150, 50, 50, 5);
+        alienTwo = new Alien(250, 250, 50, 50, 5);
+
         this.addKeyListener(this);
         new Thread(this).start();
-      
-        
+
+        int hordeWidth = 8;
+        int hordeHeight = 3;
+        int hordeSize = hordeWidth * hordeHeight;
+
+        horde = new AlienHorde(hordeSize);
+
+        shots = new Bullets();
+
+       
+
         setVisible(true);
     }
 
@@ -58,13 +62,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         //set up the double buffering to make the game animation nice and smooth
         Graphics2D twoDGraph = (Graphics2D) window;
 
-		//take a snap shop of the current screen and same it as an image
+        //take a snap shop of the current screen and same it as an image
         //that is the exact same width and height as the current screen
         if (back == null) {
             back = (BufferedImage) (createImage(getWidth(), getHeight()));
         }
 
-		//create a graphics reference to the back ground image
+        //create a graphics reference to the back ground image
         //we will draw all changes on the background image
         Graphics graphToBack = back.createGraphics();
 
@@ -76,22 +80,22 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable {
         if (keys[0] == true) {
             ship.move("LEFT");
         }
-        if(keys[1]==true){
+        if (keys[1] == true) {
             ship.move("RIGHT");
         }
-        if(keys[2]==true){
+        if (keys[2] == true) {
             ship.move("DOWN");
         }
-        if(keys[3]==true){
+        if (keys[3] == true) {
             ship.move("UP");
         }
 
-		//add code to move Ship, Alien, etc.
+        //add code to move Ship, Alien, etc.
         ship.draw(graphToBack);
         alienOne.draw(graphToBack);
         alienTwo.draw(graphToBack);
 
-		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
+        //add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
         twoDGraph.drawImage(back, null, 0, 0);
     }
 

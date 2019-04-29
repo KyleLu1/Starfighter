@@ -60,6 +60,21 @@ public class Alien extends MovingThing {
     public void draw(Graphics window) {
         window.drawImage(image, getX(), getY(), getWidth(), getHeight(), null);
     }
+    
+    public boolean isBet(int x, int y, int z){
+        return x >= y && x <= z;
+    }
+    
+    public boolean isCol (Ammo a){
+        int ay = a.getY() + a.getSpeed();
+        int ax = a.getX() - this.getSpeed();
+        if (isBet(ay, this.getY(), this.getY() + this.getHeight()) || isBet(ay + a.getHeight(), this.getY(), this.getY() + this.getHeight())){
+            if(isBet(ax, this.getX(), this.getX() + this.getWidth()) || isBet(ax, this.getX(), this.getX() + this.getWidth())){
+            return true;
+        }
+        }
+        return false;
+    }
 
     public String toString() {
         return "";

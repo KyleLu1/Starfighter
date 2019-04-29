@@ -11,6 +11,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 
 public class Bullets
 {
@@ -18,32 +19,50 @@ public class Bullets
 
 	public Bullets()
 	{
+		ammo = new ArrayList<Ammo>(20);
 	}
 
 	public void add(Ammo al)
 	{
+		ammo.add(al);
 	}
 
 	//post - draw each Ammo
 	public void drawEmAll( Graphics window )
 	{
+		for (Ammo a : ammo)
+			a.draw(window);
 	}
 
 	public void moveEmAll()
 	{
+		for (Ammo a : ammo)
+			a.move("UP");
 	}
 
 	public void cleanEmUp()
 	{
+		for (int i = 0; i < ammo.size(); i++)
+		{
+			if (ammo.get(i).getY() < 0)
+			{
+				ammo.remove(i);
+			}
+		}
 	}
 
 	public List<Ammo> getList()
 	{
-		return null;
+		return ammo;
+	}
+	
+	public List<Ammo> getAmmo()
+	{
+		return ammo;
 	}
 
 	public String toString()
 	{
-		return "";
+		return Arrays.toString(ammo.toArray());
 	}
 }
